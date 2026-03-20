@@ -1,8 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
 import Images from '../components/Images.astro';
+import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';	
+import Contend from '../components/Contend.astro';
+import Extra from '../components/Extra.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
@@ -13,12 +17,15 @@ import About from '../components/About.astro';
 
 		<About />
 
-		<section id="info" class=" min-h-screen p-8">
-			<div class="max-w-3xl mx-auto">
-				<h2 class="text-3xl font-bold mb-4">Contacto</h2>
-				<p class="text-lg leading-relaxed">Aquí puedes agregar información de contacto.</p>
-			</div>
+		<section id="info" class="items-center justify-center">
+			<Contend />
 		</section>
+
+    <Extra />
+
+    <Contact />
+
+    <Footer />
 		
 	</main>
 </Layout>
@@ -62,8 +69,3 @@ import About from '../components/About.astro';
   })
 </script>
 
---- IGNORE ---
-Create a new file src/components/Banner.astro with the following content:
-Vamos a poner las imagenes entren de arriba hacia abajo en About, y el texto a la izquierda, para que se vea mas dinamico.
-Section de informacion de el productos. imagen 1 a 2/3 de la pantalla, y el texto a 1/3 de la pantalla, segundo renglon al revez 
-section producto, con imagen a la derecha y texto a la izquierda, para que se vea mas dinamico.

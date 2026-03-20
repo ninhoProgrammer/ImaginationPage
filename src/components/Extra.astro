@@ -1,0 +1,42 @@
+<section class="flex w-screen h-dvh max-w-5xl mx-auto px-4 py-6 bg-(--color-accent) items-center justify-center">
+
+    <div class="grid md:grid-cols-2 w-auto h-auto gap-3 justify-center items-center">
+        <!-- Texto -->
+        <div class="w-full space-y-3 order-2 md:order-1 text-star text-(--color-primary)">
+            <h2 class="text-xl md:text-2xl font-semibold">
+                Creativity
+            </h2>
+            <p class="text-sm md:text-base leading-relaxed text-gray-600">
+                Creativity is the key to unlocking your imagination and bringing your ideas to life. It allows you to express yourself, solve problems, and see the world in new and exciting ways. Embrace your creativity and let it guide you on your journey of self-discovery and innovation. Pursue your passions, experiment with new ideas, and never be afraid to think outside the box. Your creativity is a powerful tool that can lead to amazing things, so nurture it and let it shine!
+            </p>
+        </div>
+
+            <!-- Imagen -->
+        <div class="relative flex w-full h-screen justify-center order-1 md:order-2 overflow-hidden max-w-sm mx-auto">
+            <img
+                src="../image6.webp"
+                alt=""
+                aria-hidden="true"
+                class="absolute inset-0 w-full h-full object-cover rounded-xl blur-layer"
+            />
+            <img
+                src="../image6.webp"
+                alt="Creatividad"
+                class="relative w-full max-w-sm object-contain rounded-xl shadow-md"
+            />
+        </div>
+
+    </div>
+
+    
+</section>
+
+<style>
+    .blur-layer {
+        filter: blur(18px);
+        transform: scale(1.08);
+        mask-image: radial-gradient(circle at center, transparent 45%, black 100%);
+        -webkit-mask-image: radial-gradient(circle at center, transparent 45%, black 100%);
+        opacity: 0.85;
+    }
+</style>
