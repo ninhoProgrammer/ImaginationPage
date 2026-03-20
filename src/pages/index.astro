@@ -1,11 +1,69 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Hero from '../components/Hero.astro';
+import Images from '../components/Images.astro';
+import About from '../components/About.astro';	
 ---
 
 <Layout>
-	<Welcome />
+	<main class="relative">
+		<Images />
+
+		<Hero />
+
+		<About />
+
+		<section id="info" class=" min-h-screen p-8">
+			<div class="max-w-3xl mx-auto">
+				<h2 class="text-3xl font-bold mb-4">Contacto</h2>
+				<p class="text-lg leading-relaxed">Aquí puedes agregar información de contacto.</p>
+			</div>
+		</section>
+		
+	</main>
 </Layout>
+
+<script>
+  window.addEventListener('load', () => {
+    const image = document.getElementById('heroImage')
+    const infoSection = document.getElementById('info')
+    if (!image || !infoSection) return
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY
+
+      // crecimiento SIEMPRE activo
+      const scale = 1 + scrollY * 0.0040
+	  // movimiento hacia arriba
+	   const translateY = scrollY * 0.7
+
+      // posición de la sección info
+      const rect = infoSection.getBoundingClientRect()
+      const windowHeight = window.innerHeight
+
+      let opacity = 1
+
+      // cuando info empieza a entrar en pantalla
+      if (rect.top < windowHeight) {
+        const progress = 1 - rect.top / windowHeight
+        opacity = 1 - progress
+      }
+
+      image.style.transform = `translateY(${translateY}px) scale(${scale})`
+      image.style.opacity = `${Math.max(0, opacity)}`
+
+	  if(infoSection.getBoundingClientRect().top < windowHeight * 0.5) {
+		image.style.animation = 'fadeOut 0.2s forwards'
+		image.style.display = 'none'
+	  } else {
+		image.style.display = 'block'
+	  }
+    })
+  })
+</script>
+
+--- IGNORE ---
+Create a new file src/components/Banner.astro with the following content:
+Vamos a poner las imagenes entren de arriba hacia abajo en About, y el texto a la izquierda, para que se vea mas dinamico.
+Section de informacion de el productos. imagen 1 a 2/3 de la pantalla, y el texto a 1/3 de la pantalla, segundo renglon al revez 
+section producto, con imagen a la derecha y texto a la izquierda, para que se vea mas dinamico.
