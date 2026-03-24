@@ -1,19 +1,19 @@
-<section class="flex flex-col relative mx-auto px-4 py-6 text-(--color-accent) items-center justify-center">
+<section class="flex flex-col relative mx-auto p-10 text-(--color-accent) items-center justify-center">
 
   <!-- BLOQUE 1 -->
-  <div class="sticky top-0 h-screen mb-20 md:mb-0 bg-(--color-background) grid md:grid-cols-2 w-100 gap-3 items-center z-20">
+  <div class="sticky top-0 w-dvw h-screen bg-(--color-background) flex flex-col md:flex-row gap-3 items-center space-y-4 md:space-y-0 z-20">
     
     <!-- Imagen -->
-    <div class="flex justify-center">
+    <div class="flex md:w-1/2 md:grow justify-center md:justify-end mt-4">
       <img 
         src="../image4.webp" 
         alt=""
-        class="w-2xs md:w-full max-w-sm object-contain rounded-xl"
+        class="w-2xs md:w-auto h-100 max-w-sm object-contain rounded-xl"
       />
     </div>
 
     <!-- Texto -->
-    <div class="space-y-0 md:space-y-3 order-2 md:order-1 text-center md:text-left">
+    <div class="flex md:w-1/2 flex-col md:grow space-y-0 md:space-y-3 px-4 order-2 md:order-1 text-center md:text-left">
       <h2 class="text-xl md:text-2xl font-semibold text-(--color-primary)">
         Imagination
       </h2>
@@ -25,24 +25,25 @@
   </div>
 
   <!-- BLOQUE 2 -->
-  <div class="sticky top-0 h-screen mb-20 md:mb-0 bg-(--color-background) grid md:grid-cols-2 w-100 gap-1 items-center z-20">
+  <div class="sticky top-0 w-dvw h-screen bg-(--color-background) flex flex-col md:flex-row gap-3 items-center space-y-4 md:space-y-0 z-20">
     
     <!-- Texto -->
-    <div class="space-y-3 order-2 md:order-1 text-center md:text-right">
+    <div class="flex md:w-1/2 flex-col md:grow space-y-0 md:space-y-3 px-4 order-2 md:order-1 justify-end text-center md:text-right">
       <h2 class="text-xl md:text-2xl font-semibold text-(--color-primary)">
         Creativity
       </h2>
-      <p class="text-sm md:text-base md:leading-relaxed">
+      
+      <p class="text-sm md:text-base md:leading-relaxed ">
         Creativity is the key to unlocking your imagination and bringing your ideas to life.
       </p>
     </div>
 
     <!-- Imagen -->
-    <div class="flex justify-center order-1 md:order-2">
+    <div class="flex md:w-1/2 md:grow justify-center md:justify-start order-1 md:order-2 mt-4">
       <img 
         src="../image5.webp" 
         alt=""
-        class="w-2xs md:w-full max-w-sm object-contain rounded-xl"
+        class="w-auto h-100 max-w-sm object-contain rounded-xl"
       />
     </div>
 
