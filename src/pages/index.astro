@@ -5,7 +5,7 @@ import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';	
 import Contend from '../components/Contend.astro';
 import Extra from '../components/Extra.astro';
-import Contact from '../components/Contact.astro';
+import Section from '../components/Section.astro';
 import Footer from '../components/Footer.astro';
 ---
 
@@ -23,7 +23,7 @@ import Footer from '../components/Footer.astro';
 
     <Extra />
 
-    <Contact />
+    <Section />
 
     <Footer />
 		
@@ -34,38 +34,36 @@ import Footer from '../components/Footer.astro';
   window.addEventListener('load', () => {
     const image = document.getElementById('heroImage')
     const infoSection = document.getElementById('info')
-    if (!image || !infoSection) return
+   
 
-    window.addEventListener('scroll', () => {
+    function updateImage() {
+       if (!image || !infoSection) return
+
       const scrollY = window.scrollY
 
-      // crecimiento SIEMPRE activo
-      const scale = 1 + scrollY * 0.0040
-	  // movimiento hacia arriba
-	   const translateY = scrollY * 0.7
+      const scale = 1 + scrollY * 0.0015
+      const translateY = scrollY * 0.3
 
-      // posición de la sección info
       const rect = infoSection.getBoundingClientRect()
       const windowHeight = window.innerHeight
 
       let opacity = 1
 
-      // cuando info empieza a entrar en pantalla
       if (rect.top < windowHeight) {
         const progress = 1 - rect.top / windowHeight
         opacity = 1 - progress
       }
 
       image.style.transform = `translateY(${translateY}px) scale(${scale})`
-      image.style.opacity = `${Math.max(0, opacity)}`
+      image.style.opacity = Math.max(0, opacity).toString()
+      image.style.zIndex = opacity > 0 ? '1' : '-1'
+    }
 
-	  if(infoSection.getBoundingClientRect().top < windowHeight * 0.5) {
-		image.style.animation = 'fadeOut 0.2s forwards'
-		image.style.display = 'none'
-	  } else {
-		image.style.display = 'block'
-	  }
-    })
+    // 🔥 CORRE AL INICIO
+    updateImage()
+
+    // luego en scroll
+    window.addEventListener('scroll', updateImage)
   })
 </script>
 

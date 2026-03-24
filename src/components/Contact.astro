@@ -1,6 +1,6 @@
-<section class="flex flex-col  md:flex-row items-center justify-center min-h-screen px-6 relative overflow-hidden py-16 z">
+<section class="flex flex-col  md:flex-row items-center justify-center min-h-screen px-6 relative overflow-hidden py-16 z-20">
     <!-- Left Info Panel -->
-    <div class="bg-(--color-primary) text-(--color-accent) p-6 md:p-10 md:w-1/4 rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none shadow-lg">
+    <div class="bg-(--color-primary) text-(--color-background) p-6 md:p-10 md:w-1/4 rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none shadow-lg">
         <div class="space-y-5 md:space-y-10">
 
             <!-- Call -->
@@ -66,17 +66,17 @@
     <div class="bg-(--color-secondary) p-10 md:w-1/2 rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none text-(--color-accent) shadow-lg pr-10 z-0 hover:shadow-2xl">
         <h2 class="text-2xl font-bold mb-8 ">Contact Us</h2>
 
-        <form action="#" method="POST" class="space-y-6">
+        <form action="#" method="POST" class="space-y-6 te">
             <div>
-                <input type="text" placeholder="Enter your Name" class="w-full border-b-2 border-(--color-accent) focus:outline-none focus:border-red-500 py-2 placeholder-(--color-accent)" required>
+                <input type="text" placeholder="Enter your Name" class="w-full border-b border-(--color-accent) focus:outline-none focus:border-b-4 focus:border-(--color-primary) py-2 focus:placeholder-(--color-background)" required>
             </div>
             <div>
-                <input type="email" placeholder="Enter a valid email address" class="w-full border-b-2 border-(--color-accent) focus:outline-none focus:border-red-500 py-2 placeholder-(--color-accent)" required>
+                <input type="email" placeholder="Enter a valid email address" class="w-full border-b border-(--color-accent) focus:outline-none focus:border-b-4 focus:border-(--color-primary) py-2 focus:placeholder-(--color-background)" required>
             </div>
             <div>
-                <textarea rows="4" placeholder="Your Message" class="w-full border-b-2 border-(--color-accent) focus:outline-none focus:border-red-500 py-2 placeholder-(--color-accent)" required></textarea>
+                <textarea rows="4" placeholder="Your Message" class="w-full border-b border-(--color-accent) focus:outline-none focus:border-b-4 focus:border-(--color-primary) py-2 focus:placeholder-(--color-background)" required></textarea>
             </div>
-            <button type="submit" class="border w-full text-(--color-accent) border-gray-300 px-4 py-2 rounded hover:bg-gray-300 hover:text-gray-800 hover:shadow-2xl" @click="handleSubmit">
+            <button type="submit" class="border w-full text-(--color-accent) border-(--color-accent) px-4 py-2 rounded hover:bg-(--color-primary) hover:text-(--color-background) hover:border-(--color-) hover:shadow-2xl" @click="handleSubmit">
                 <span v-if="status === ''">Enviar</span>
                 <span v-else></span>
             </button>
