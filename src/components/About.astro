@@ -1,7 +1,7 @@
-<section id="about" class="h-screen p-4 md:p-6 flex md:grid md:grid-cols-2 items-center justify-center z-20 overflow-hidden">
+<section id="about" class="h-screen grid grid-cols-2 items-center justify-end z-20 overflow-hidden px-10 md:px-0">
 
     <!-- IZQUIERDA -->
-    <div class="animate-left w-8/12 text-(--color-primary) flex flex-col opacity-0 scale-75 transition-all duration-700 ease-out delay-200">
+    <div class="animate-left w-8/12 text-(--color-primary) flex flex-col justify-start opacity-0 md:-translate-x-10 scale-75 transition-all duration-700 ease-out delay-200">
 
         <p class="text-xl 2xl:text-4xl pb-2 md:pb-0 font-light">
             About
@@ -19,8 +19,8 @@
     </div>
 
     <!-- DERECHA -->
-    <div class="animate-right flex justify-start md:justify-end items-start md:items-center w-full md:w-auto opacity-0 md:scale-75 transition-all duration-700 ease-out delay-200">
-        <div class="hidden mt-10 md:grid grid-cols-1 space-y-2 md:grid-cols-1 gap-1">
+    <div class="animate-right flex flex-row md:flex-col justify-end items-start md:items-end w-full opacity-0  md:scale-75 transition-all duration-700 ease-out delay-200">
+        <div class="mt-10 md:grid grid-cols-1 space-y-8 md:grid-cols-1 gap-1">
             <img class="rounded-lg shadow-lg md:w-auto h-20 md:h-42 md:object-cover" src="../image2.webp" />
             <img class="rounded-lg shadow-lg md:w-auto h-20 md:h-42 md:object-cover" src="../image3.webp" />
         </div>
@@ -41,8 +41,8 @@
                     const left = entry.target.querySelector('.animate-left');
                     const right = entry.target.querySelector('.animate-right');
 
-                    if(left) left.classList.add('scale-100', 'opacity-100', 'translate-x-10');
-                    if(right) right.classList.add('scale-100', 'opacity-100', '-translate-x-10');
+                    if(left) left.classList.add('scale-100', 'opacity-100', 'md:translate-x-10');
+                    if(right) right.classList.add('scale-100', 'opacity-100', 'md:-translate-x-20');
                 }
             });
         }, { threshold: 0.1 });
