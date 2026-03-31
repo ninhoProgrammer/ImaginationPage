@@ -1,4 +1,4 @@
-<header id="main-header" class="flex bg-(--color-secondary) md:bg-(--color-secondary)/50 shadow-(--color-primary) items-center p-1 w-full fixed top-0 justify-between z-40 text-sm 2xl:text-xl">
+<header id="main-header" class="flex bg-(--color-secondary) md:bg-(--color-secondary)/50 shadow-(--color-primary) items-center p-1 w-full fixed top-0 justify-between z-40 text-xs">
     <div class="flex grow justify-start pl-5 w-20">
         <a href="/">
            <h1 class="font-bond md:text-base text-(--color-accent) 2xl:text-xl"><strong>LOGO</strong></h1>
@@ -7,11 +7,11 @@
   
     <!-- Desktop Menu -->
     <div class="pl-12">
-        <div id="desktop-menu" class=" lg:flex hidden justify-center p-1 bg-(--color-accent) text-(--color-primary) items-center rounded-lg">
-            <ul class="flex [&>li>a]:inline-block [&>li>a]:px-8 [&>li>a]:w-28 [&>li>a]:py-1 shadow-4xl rounded-lg [&>li>a]:justify-center text-center">
+        <div id="desktop-menu" class=" lg:flex hidden justify-center p-1 bg-(--color-accent) text-(--color-primary) text-center items-center rounded-lg">
+            <ul class="flex [&>li>a]:inline-block [&>li>a]:px-8 [&>li>a]:w-28 [&>li>a]:py-1 shadow-4xl rounded-lg [&>li>a]:justify-center [&>li>a]:text-center">
                 <li><a class="hover:rounded-lg hover:text-(--color-background) hover:bg-(--color-background) hover:underline hover:bg-linear-to-r from-(--color-primary) to-(--color-secondary) decoration-(--color-primary)" href="/">Home</a></li>
                 <li><a class="hover:rounded-lg hover:text-(--color-background) hover:bg-(--color-background) hover:underline hover:bg-linear-to-r from-(--color-primary) to-(--color-secondary) decoration-(--color-primary)" href="/">About</a></li>
-                <li><a class="hover:rounded-lg hover:text-(--color-background) hover:bg-(--color-background) hover:underline hover:bg-linear-to-r from-(--color-primary) to-(--color-secondary) decoration-(--color-primary)" href="/services">Services</a></li>
+                <li><a class="hover:rounded-lg hover:text-(--color-background) hover:bg-(--color-background) hover:underline hover:bg-linear-to-r from-(--color-primary) to-(--color-secondary) decoration-(--color-primary)" href="/services">Service</a></li>
                 <li><a class="hover:rounded-lg hover:text-(--color-background) hover:bg-(--color-background) hover:underline hover:bg-linear-to-r from-(--color-primary) to-(--color-secondary) decoration-(--color-primary)" href="/blog">Blog</a></li>
             </ul>
         </div>
@@ -51,22 +51,35 @@
 
 <script>
     declare global {
-      interface Window {
-        openMenu: () => void;
-      }
+        interface Window {
+            openMenu: () => void;
+        }
+    }
+    function openMenu() {
+        const menu = document.getElementById('mobile-menu');
+        if (!menu) return;
+
+        const isVisible = !menu.classList.contains('hidden');
+
+        if (isVisible) {
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
+            document.removeEventListener('click', closeMenuOnOutsideClick);
+        } else {
+            menu.classList.remove('hidden');
+            menu.classList.add('flex');
+            setTimeout(() => {
+                document.addEventListener('click', closeMenuOnOutsideClick);
+            }, 0); // Evita que se cierre inmediatamente por el mismo click del botón
+        }
     }
 
-    function openMenu() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const closeIcon = document.getElementById('close-icon');
-
-        if (mobileMenu && menuIcon && closeIcon) {
-            const isHidden = mobileMenu.classList.contains('hidden');
-
-            mobileMenu.classList.toggle('hidden', !isHidden);
-            menuIcon.classList.toggle('hidden', isHidden);
-            closeIcon.classList.toggle('hidden', !isHidden);
+    function closeMenuOnOutsideClick(e: MouseEvent) {
+        const menu = document.getElementById('mobile-menu');
+        const button = (e.target as HTMLElement)?.closest('button[aria-label="Abrir menú"]');
+        if (menu && !menu.contains(e.target as Node) && !button) {
+            menu.classList.add('hidden');
+            document.removeEventListener('click', closeMenuOnOutsideClick);
         }
     }
 

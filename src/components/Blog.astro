@@ -1,6 +1,92 @@
-<section>
-    <h1>Blog</h1>
-    <p>Welcome to the blog section! Here you'll find the latest updates and articles.</p>
+---
+import Layout from "../layouts/Layout.astro"
+---
 
-    
-</section>
+<Layout>
+    <main class="max-w-6xl mx-auto px-10 items-center justify-center h-screen">
+		
+		<section class="flex flex-col bg- items-center justify-center text-center h-dvh space-y-6">
+			<div class="absolute h-full inset-0 bg-[url('../background.webp')] opacity-90 backdrop-blur-sm shadow-xl animate-fade z-0"></div>
+			<div class="z-10">
+				<h1 class="text-(--color-accent) text-6xl font-black tracking-tighter lg:text-8xl">
+					Build with <span class="text-(--color-primary) underline decoration-(--color-secondary) decoration-2 underline-offset-4">Purpose</span>.
+				</h1>
+				<p class="text-xl text-(--color-secondary) max-w-2xl mx-auto leading-relaxed">
+					We're working hard to bring you exciting content. Stay tuned for updates and insights on creativity, imagination, and more!
+				</p>
+			</div>
+		</section>
+
+		<hr class="border-(--color-secondary)" />
+
+		<section class="grid grid-cols-1 md:grid-cols-2 py-10 gap-16 items-center">
+			<div class="space-y-8">
+				<h2 class="text-4xl font-bold tracking-tight">Technical Overview</h2>
+				<p class="text-(--color-secondary) text-lg leading-relaxed">
+					Using a high-contrast palette and modern frameworks to ensure that content remains the protagonist. Every line of code is optimized for performance and accessibility.
+				</p>
+				<div class="space-y-4">
+					<div class="flex items-center gap-4">
+						<div class="h-2 w-2 rounded-full bg-(--color-primary)"></div>
+						<p class="font-medium">Optimized for Core Web Vitals</p>
+					</div>
+					<div class="flex items-center gap-4">
+						<div class="h-2 w-2 rounded-full bg-(--color-primary)"></div>
+						<p class="font-medium">Custom Tailwind Integration</p>
+					</div>
+				</div>
+			</div>
+			<div class="aspect-square bg-(--color-secondary) opacity-10 rounded-full border-12 border-(--color-primary) flex items-center justify-center">
+				<span class="text-(--color-primary) font-black text-9xl">A</span>
+			</div>
+		</section>
+
+		<section class="flex bg-white/50 h-screen backdrop-blur-sm px-10 rounded-lg border border-(--color-secondary)/20 shadow-xl items-center justify-center">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-20">
+				<div class="flex flex-col justify-center space-y-6">
+					<span class="text-xs font-bold uppercase tracking-[0.3em] text-(--color-primary)">Brand Typography</span>
+					<div class="space-y-4">
+						<h3 class="text-4xl md:text-7xl font-medium tracking-tighter">Epic pro</h3>
+						<p class="text-(--color-secondary) text-sm md:text-xl font-light leading-relaxed break-words">
+							Modern, clean, and highly legible across all devices. 
+							ABCDEFGHIJKLMNOPQRSTUVWXYZ 
+							1234567890
+						</p>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-2 gap-6">
+					<div class="group">
+						<div class="h-28 w-full bg-(--color-primary) rounded-lg shadow-sm transition-all group-hover:shadow-lg"></div>
+						<div class="mt-3">
+							<p class="text-sm font-bold uppercase tracking-tight">Primary</p>
+							<p class="text-xs font-mono text-(--color-secondary)">#6B8100</p>
+						</div>
+					</div>
+					<div class="group">
+						<div class="h-28 w-full bg-(--color-secondary) rounded-lg shadow-sm transition-all group-hover:shadow-lg"></div>
+						<div class="mt-3">
+							<p class="text-sm font-bold uppercase tracking-tight">Secondary</p>
+							<p class="text-xs font-mono text-(--color-secondary)">#A3A494</p>
+						</div>
+					</div>
+					<div class="group">
+						<div class="h-28 w-full bg-(--color-background) rounded-lg border border-slate-200 shadow-sm transition-all group-hover:shadow-lg"></div>
+						<div class="mt-3">
+							<p class="text-sm font-bold uppercase tracking-tight">Background</p>
+							<p class="text-xs font-mono text-(--color-secondary)">#EBEEF2</p>
+						</div>
+					</div>
+					<div class="group">
+						<div class="h-28 w-full bg-(--color-accent) rounded-lg shadow-sm transition-all group-hover:shadow-lg"></div>
+						<div class="mt-3">
+							<p class="text-sm font-bold uppercase tracking-tight">Accent</p>
+							<p class="text-xs font-mono text-(--color-secondary)">#000000</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</main>
+</Layout>
