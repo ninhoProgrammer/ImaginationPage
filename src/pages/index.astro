@@ -11,7 +11,7 @@ import Footer from '../components/Footer.astro';
 
 <Layout>
 	<main class="relative">
-    <Images />
+		<Images />
 
 		<Hero />
 
@@ -19,49 +19,13 @@ import Footer from '../components/Footer.astro';
 		
 		<Contend />
 
-    <Extra />
+		<Extra />
 
-    <Section />
+		<Section />
 
-    <Footer />
+		<Footer />
 		
 	</main>
 </Layout>
 
-<script>
-  window.addEventListener('load', () => {
-    const image = document.getElementById('heroImage')
-    const infoSection = document.getElementById('info')
-   
-
-    function updateImage() {
-       if (!image || !infoSection) return
-
-      const scrollY = window.scrollY
-
-      const scale = 1 + scrollY * 0.0015
-      const translateY = scrollY * 0.3
-
-      const rect = infoSection.getBoundingClientRect()
-      const windowHeight = window.innerHeight
-
-      let opacity = 1
-
-      if (rect.top < windowHeight) {
-        const progress = 1 - rect.top / windowHeight
-        opacity = 1 - progress
-      }
-
-      image.style.transform = `translateY(${translateY}px) scale(${scale})`
-      image.style.opacity = Math.max(0, opacity).toString()
-      image.style.zIndex = opacity > 0 ? '1' : '-1'
-    }
-
-    // 🔥 CORRE AL INICIO
-    updateImage()
-
-    // luego en scroll
-    window.addEventListener('scroll', updateImage)
-  })
-</script>
 

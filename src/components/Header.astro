@@ -26,25 +26,26 @@
     <!-- Mobile Toggle -->
     <div class="menu flex lg:hidden justify-end pr-5" onclick="window.openMenu()">
         
-        <svg id="menu-icon" width="48px" height="48px" viewBox="0 0 2.4 2.4" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path width="48" height="48" fill="white" fill-opacity="0.01" d="M0 0H2.4V2.4H0V0z"/>
+        <svg id="menu-icon" width="25px" height="25px" viewBox="0 0 2.4 2.4" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path width="25" height="25" fill="white" fill-opacity="0.01" d="M0 0H2.4V2.4H0V0z"/>
             <path d="M1.85 0.9 1.25 1.5 0.65 0.9" stroke="#000000" stroke-width="0.2" stroke-linecap="round" class="block" stroke-linejoin="round"/>
         </svg>
 
-        <svg id="close-icon" width="48px" height="48px" viewBox="0 0 2.88 2.88" fill="none" class="hidden" xmlns="http://www.w3.org/2000/svg">
-            <path width="48" height="48" fill="white" fill-opacity="0.01" d="M0 0h2.88v2.88H0z"/>
+        <svg id="close-icon" width="25px" height="25px" viewBox="0 0 2.88 2.88" fill="none" class="hidden" xmlns="http://www.w3.org/2000/svg">
+            <path width="25" height="25" fill="white" fill-opacity="0.01" d="M0 0h2.88v2.88H0z"/>
             <path d="m0.78 1.8 0.72 -0.72 0.72 0.72" stroke="#000000" stroke-width="0.24" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </div>
   
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden absolute top-9 left-0 w-full bg-(--color-secondary) rounded-b-lg items-center justify-center text-center shadow-4xl z-30 lg:hidden">
-        <ul>
-            <li><a class="hover:rounded-lg hover:text-(--color-primary) hover:bg-(--color-background) hover:underline decoration-(--color-primary)" href="/">Home</a></li>
-            <li><a class="hover:rounded-lg hover:text-(--color-primary) hover:bg-(--color-background) hover:underline decoration-(--color-primary)" href="/">Blog</a></li>
-            <li><a class="hover:rounded-lg hover:text-(--color-primary) hover:bg-(--color-background) hover:underline decoration-(--color-primary)" href="/services">Services</a></li>
-            <li><a class="hover:rounded-lg hover:text-(--color-primary) hover:bg-(--color-background) hover:underline decoration-(--color-primary)" href="/services">Experience</a></li>
-            <li><a class="text-(--color-primary) hover:rounded-lg hover:text-(--color-background) hover:bg-(--color-primary) hover:underline decoration-(--color-primary)" href="/contact">Contact</a></li>
+   <div id="mobile-menu" class="flex absolute top-6 left-0 w-full bg-(--color-primary) rounded-b-lg items-center justify-center text-center shadow-4xl z-30 lg:hidden opacity-0 -translate-y-full pointer-events-none transition-all duration-300 ease-out">
+        <ul class="flex flex-col gap p-2 [&>li>a]:block [&>li>a]:w-32 [&>li>a]:px-6 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:rounded-lg [&>li>a]:transition-all [&>li>a]:duration-200 shadow-4xl md:shadow-none rounded-lg ">
+            <li><a class="hover:rounded-lg hover:text-(--color-background) hover:bg-(--color-background) hover:underline hover:bg-linear-to-r from-(--color-primary) to-(--color-secondary) decoration-(--color-primary)" href="/">Home</a></li>
+            <li><a class="hover:rounded-lg hover:text-(--color-background) hover:bg-(--color-background) hover:underline hover:bg-linear-to-r from-(--color-primary) to-(--color-secondary) decoration-(--color-primary)" href="/">About</a></li>
+            <li><a class="hover:rounded-lg hover:text-(--color-background) hover:bg-(--color-background) hover:underline hover:bg-linear-to-r from-(--color-primary) to-(--color-secondary) decoration-(--color-primary)" href="/services">Service</a></li>
+            <li><a class="hover:rounded-lg hover:text-(--color-background) hover:bg-(--color-background) hover:underline hover:bg-linear-to-r from-(--color-primary) to-(--color-secondary) decoration-(--color-primary)" href="/blog">Blog</a></li>
+            <hr class="relative flex flex-wrap border-(--color-secondary) my-1" />
+            <li><a class="bg-linear-to-r from-(--color-primary) to-(--color-secondary) text-(--color-background) rounded-lg hover:text-(--color-primary) hover:bg-linear-to-r hover:from-(--color-accent) hover:to-(--color-accent) hover:underline decoration-(--color-primary)" href="/contact">Contact</a></li>
         </ul>
     </div>
 </header>
@@ -55,33 +56,31 @@
             openMenu: () => void;
         }
     }
+
     function openMenu() {
-        const menu = document.getElementById('mobile-menu');
-        if (!menu) return;
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
 
-        const isVisible = !menu.classList.contains('hidden');
+        if (!mobileMenu || !menuIcon || !closeIcon) return;
 
-        if (isVisible) {
-            menu.classList.add('hidden');
-            menu.classList.remove('flex');
-            document.removeEventListener('click', closeMenuOnOutsideClick);
+        const isOpen = mobileMenu.classList.contains('translate-y-0');
+
+        if (isOpen) {
+            // CERRAR (sube)
+            mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
         } else {
-            menu.classList.remove('hidden');
-            menu.classList.add('flex');
-            setTimeout(() => {
-                document.addEventListener('click', closeMenuOnOutsideClick);
-            }, 0); // Evita que se cierre inmediatamente por el mismo click del botón
+            // ABRIR (baja)
+            mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
         }
     }
-
-    function closeMenuOnOutsideClick(e: MouseEvent) {
-        const menu = document.getElementById('mobile-menu');
-        const button = (e.target as HTMLElement)?.closest('button[aria-label="Abrir menú"]');
-        if (menu && !menu.contains(e.target as Node) && !button) {
-            menu.classList.add('hidden');
-            document.removeEventListener('click', closeMenuOnOutsideClick);
-        }
-    }
-
     window.openMenu = openMenu;
 </script>

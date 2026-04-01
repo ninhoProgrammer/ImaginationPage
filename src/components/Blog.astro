@@ -9,15 +9,13 @@ import Layout from "../layouts/Layout.astro"
 			<div class="absolute h-full inset-0 bg-[url('../background.webp')] opacity-90 backdrop-blur-sm shadow-xl animate-fade z-0"></div>
 			<div class="z-10">
 				<h1 class="text-(--color-accent) text-6xl font-black tracking-tighter lg:text-8xl">
-					Build with <span class="text-(--color-primary) underline decoration-(--color-secondary) decoration-2 underline-offset-4">Purpose</span>.
+					Build with <span class="text-(--color-primary) underline decoration-(--color-background) decoration-2 underline-offset-4">Purpose</span>.
 				</h1>
 				<p class="text-xl text-(--color-secondary) max-w-2xl mx-auto leading-relaxed">
 					We're working hard to bring you exciting content. Stay tuned for updates and insights on creativity, imagination, and more!
 				</p>
 			</div>
 		</section>
-
-		<hr class="border-(--color-secondary)" />
 
 		<section class="grid grid-cols-1 md:grid-cols-2 py-10 gap-16 items-center">
 			<div class="space-y-8">
@@ -41,13 +39,14 @@ import Layout from "../layouts/Layout.astro"
 			</div>
 		</section>
 
-		<section class="flex bg-white/50 h-screen backdrop-blur-sm px-10 rounded-lg border border-(--color-secondary)/20 shadow-xl items-center justify-center">
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-20">
+		<hr class="border-(--color-secondary) border-2" />
+
+		<section class="grid h-full grid-cols-1 lg:grid-cols-2 py-10 gap-2 md:gap-20 items-center justify-center">
 				<div class="flex flex-col justify-center space-y-6">
-					<span class="text-xs font-bold uppercase tracking-[0.3em] text-(--color-primary)">Brand Typography</span>
+					<span class="text-xs font-bold uppercase tracking-[0.5em] text-(--color-primary)">Brand Typography</span>
 					<div class="space-y-4">
 						<h3 class="text-4xl md:text-7xl font-medium tracking-tighter">Epic pro</h3>
-						<p class="text-(--color-secondary) text-sm md:text-xl font-light leading-relaxed break-words">
+						<p class="text-(--color-secondary) text-sm md:text-xl font-light leading-relaxed wrap-anywhere">
 							Modern, clean, and highly legible across all devices. 
 							ABCDEFGHIJKLMNOPQRSTUVWXYZ 
 							1234567890
@@ -55,38 +54,38 @@ import Layout from "../layouts/Layout.astro"
 					</div>
 				</div>
 
-				<div class="grid grid-cols-2 gap-6">
+				<div class="grid grid-cols-2 gap-6 pb-10 md:pb-0 md:gap-12">
 					<div class="group">
 						<div class="h-28 w-full bg-(--color-primary) rounded-lg shadow-sm transition-all group-hover:shadow-lg"></div>
 						<div class="mt-3">
 							<p class="text-sm font-bold uppercase tracking-tight">Primary</p>
-							<p class="text-xs font-mono text-(--color-secondary)">#6B8100</p>
+							<p class="text-xs font-mono text-(--color-secondary)">#6B8100|Olive Green</p>
 						</div>
 					</div>
 					<div class="group">
 						<div class="h-28 w-full bg-(--color-secondary) rounded-lg shadow-sm transition-all group-hover:shadow-lg"></div>
 						<div class="mt-3">
 							<p class="text-sm font-bold uppercase tracking-tight">Secondary</p>
-							<p class="text-xs font-mono text-(--color-secondary)">#A3A494</p>
+							<p class="text-xs font-mono text-(--color-secondary)">#A3A494|Sage Gray</p>
 						</div>
 					</div>
 					<div class="group">
 						<div class="h-28 w-full bg-(--color-background) rounded-lg border border-slate-200 shadow-sm transition-all group-hover:shadow-lg"></div>
 						<div class="mt-3">
 							<p class="text-sm font-bold uppercase tracking-tight">Background</p>
-							<p class="text-xs font-mono text-(--color-secondary)">#EBEEF2</p>
+							<p class="text-xs font-mono text-(--color-secondary)">#EBEEF2|White Light Smoke</p>
 						</div>
 					</div>
 					<div class="group">
 						<div class="h-28 w-full bg-(--color-accent) rounded-lg shadow-sm transition-all group-hover:shadow-lg"></div>
 						<div class="mt-3">
 							<p class="text-sm font-bold uppercase tracking-tight">Accent</p>
-							<p class="text-xs font-mono text-(--color-secondary)">#000000</p>
+							<p class="text-xs font-mono text-(--color-secondary)">#000000|Black</p>
 						</div>
 					</div>
 				</div>
 
 			</div>
-		</section>
+		
 	</main>
 </Layout>
