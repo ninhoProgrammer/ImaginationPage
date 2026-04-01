@@ -83,4 +83,27 @@
         }
     }
     window.openMenu = openMenu;
+
+    document.addEventListener('click', (event) => {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuContainer = document.querySelector('.menu');
+
+        if (!mobileMenu || !menuContainer) return;
+
+        const target = event.target as Node;
+
+        const isClickInsideMenu = mobileMenu.contains(target);
+        const isClickOnButton = menuContainer.contains(target);
+
+        // 🔥 SOLO cerrar si está abierto
+        const isOpen = mobileMenu.classList.contains('translate-y-0');
+
+        if (isOpen && !isClickInsideMenu && !isClickOnButton) {
+            mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+
+            document.getElementById('menu-icon')?.classList.remove('hidden');
+            document.getElementById('close-icon')?.classList.add('hidden');
+        }
+    });
 </script>

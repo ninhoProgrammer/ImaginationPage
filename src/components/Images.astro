@@ -2,12 +2,12 @@
     <img 
         id="heroImage"
         alt="Person Image" 
-        class="w-full h-1/2 md:h-dvh md:mt-16 opacity-0 will-change-transform pointer-events-auto transition-all duration-300 ease-out"
+        class="w-full h-screen mt-24 md:mt-16 opacity-0 will-change-transform pointer-events-auto transition-all duration-300 ease-out"
     >
 </div>
 
 <script>
-  window.addEventListener('load', () => {
+window.addEventListener('load', () => {
     const image = document.getElementById('heroImage') as HTMLImageElement
     const infoSection = document.getElementById('info')
 
@@ -18,42 +18,50 @@
     img.src = '../Person.png'
 
     img.onload = () => {
-      image.src = img.src
+        image.src = img.src
 
-      // 🎬 Entrada inicial (fade + slide)
-      image.style.opacity = '0'
-      image.style.transform = 'translateY(50px) scale(0.95)'
+        // 🎬 Entrada inicial
+        image.style.opacity = '0'
+        image.style.transform = 'translateY(50px) scale(0.95)'
 
-      requestAnimationFrame(() => {
-        image.style.opacity = '1'
-        image.style.transform = 'translateY(0px) scale(1)'
-      })
+        requestAnimationFrame(() => {
+            image.style.opacity = '1'
+            image.style.transform = 'translateY(0px) scale(1)'
+        })
     }
 
     function updateImage() {
-      if (!infoSection || !image) return
+        if (!infoSection || !image) return
 
-      const scrollY = window.scrollY
+        const scrollY = window.scrollY
 
-      const scale = 1 + scrollY * 0.0015
-      const translateY = scrollY * 0.3
+        const scale = 1 + scrollY * 0.0015
+        const translateY = scrollY * 0.3
 
-      const rect = infoSection.getBoundingClientRect()
-      const windowHeight = window.innerHeight
+        const rect = infoSection.getBoundingClientRect()
+        const windowHeight = window.innerHeight
 
-      let opacity = 1
+        let opacity = 1
 
-      if (rect.top < windowHeight) {
-        const progress = 1 - rect.top / windowHeight
-        opacity = 1 - progress
-      }
+        if (rect.top < windowHeight) {
+            const progress = 1 - rect.top / windowHeight
+            opacity = 1 - progress
+        }
 
-      image.style.transform = `translateY(${translateY}px) scale(${scale})`
-      image.style.opacity = Math.max(0, opacity).toString()
-      image.style.zIndex = opacity > 0 ? '1' : '0'
+        // 🎯 Movimiento
+        image.style.transform = `translateY(${translateY}px) scale(${scale})`
+
+        // 🔥 Control inteligente de visibilidad
+        if (opacity <= 0) {
+            image.style.opacity = '0'
+            image.style.visibility = 'hidden'
+        } else {
+            image.style.visibility = 'visible'
+            image.style.opacity = opacity.toString()
+        }
     }
 
     updateImage()
     window.addEventListener('scroll', updateImage)
-  })
+})
 </script>
