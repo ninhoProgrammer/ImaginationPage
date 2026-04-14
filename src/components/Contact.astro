@@ -77,7 +77,7 @@
                 <textarea rows="4" placeholder="Your Message" class="w-full border-b border-(--color-accent) focus:outline-none focus:border-b-4 focus:border-(--color-primary) py-2 focus:placeholder-(--color-background)" required></textarea>
             </div>
             <button type="submit" class="border w-full text-(--color-accent) border-(--color-accent) px-4 py-2 rounded hover:bg-(--color-primary) hover:text-(--color-background) hover:border-(--color-) hover:shadow-2xl" @click="handleSubmit">
-                <span v-if="status === ''">Enviar</span>
+                <span v-if="status === ''">Send Message <span>&rarr;</span></span>
                 <span v-else></span>
             </button>
             
