@@ -1,0 +1,135 @@
+<section class="flex flex-col items-center bg-(--color-background)">
+    <div class="max-w-7xl h-screen px-10 mt-10 flex flex-col-reverse md:flex-row gap-5 md:gap-10 items-center">
+      <!-- TEXTO -->
+        <div class="flex flex-col md:w-1/2 justify-center -mt-5">
+            <p class="text-(--color-primary) font-semibold tracking-widest text-sm">
+                About Me
+            </p>
+
+            <h1 class="text-2xl md:text-4xl font-bold text-(--color-secondary) leading-tight mt-1">
+                Imagination Page is created.
+            </h1>
+
+            <p class="text-(--color-secondary) mt-1 text-base">
+                This is a description of the page, it can be a bit longer 
+                to give more information about the content and purpose of the page.   
+            </p>
+            <div class="bg-(--color-accent) rounded-lg px-2 my-2" >
+                <p class="text-(--color-primary) font-semibold tracking-widest text-sm mt-1">
+                    Imagination page is:
+                </p>
+
+                <h2 class="text-4xl md:text-5xl font-bold text-(--color-primary)">
+                    Creation and <span class="text-(--color-background) underline decoration-(--color-primary) decoration-2 underline-offset-4">innovation</span>.
+                </h2>
+            </div>
+
+            <hr class="relative flex flex-wrap border-(--color-secondary) border-2 my-1" />
+            
+            <p class="text-base">
+                this is a description of the page
+            </p>
+
+            <!-- INFO -->
+            <div class="grid grid-cols-2 gap-2 text-[10px]">
+                <p><strong>name:</strong> Imagination Page</p>
+                <p><strong>creator:</strong> Mario Hernandez</p>
+                <p><strong>tecnology:</strong> Astro and tailwind</p>
+                <p><strong>creation:</strong> 2026</p>
+            </div>
+            <hr class="relative flex flex-wrap border-(--color-secondary) border-2 my-1" />
+        </div>
+
+        <!-- IMAGEN -->
+        <div class="relative flex justify-center items-center">
+            
+            <!-- CÍRCULOS DE FONDO -->
+           
+            <div class="absolute w-80 h-80 rounded-full 
+                        bg-(--color-primary) opacity-50">
+            </div>
+
+            <div class="absolute w-100 h-100 rounded-full 
+                        bg-(--color-secondary) opacity-50 ">
+            </div>
+
+            <!-- ICONO -->
+            <div class="absolute w-12 h-12 md:w-20 md:h-20 bg-(--color-primary) rounded-r-full rounded-t-full top-10 right-1 md:top-20 md:right-10 text-(--color-background) text-2xl md:text-4xl font-bold flex items-center justify-center shadow-md">
+                <span>HI</span>
+            </div>
+
+            <!-- IMAGEN PRINCIPAL -->
+            <img 
+                src="/image6.webp" 
+                alt="avatar"
+                class="relative w-75 md:w-100 z-10"
+            />
+        </div>
+
+    </div>
+
+    <div class="w-full px-10 bg-(--color-secondary) text-(--color-primary) items-center mt-10 md:mt-0">
+        <!-- Left Info Panel -->
+        <h2 class="text-xl md:text-3xl font-bold my-10 md:my-5 text-center">Contact Information</h2>
+
+        <div class="grid md:grid-cols-4 h-full rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none text-(--color-accent) text-center shadow-lg z-0 hover:shadow-2xl">
+            
+            <!-- Location -->
+            <div class="flex flex-col items-center gap-4 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z" />     
+                </svg>
+                <div>
+                    <h3 class="text-base md:text-xl font-bold mb-1">Location</h3>
+                    <p class="text-sm md:text-base">
+                        123 Main Street, City, Country
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Email -->
+            <div class="flex flex-col items-center gap-4 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-6m-4-4l4 4m0 0l-4 4m4-4H8" />
+                </svg>
+                <div>
+                    <h3 class="text-base md:text-xl font-bold mb-1">Email Us</h3>
+                    <p class="text-sm md:text-base">
+                        Email us at<br />
+                    </p>
+                    <a href="mailto:example@email.com" class="text-(--color-primary) hover:text-blue-500 hover:underline">
+                        example@email.com
+                    </a>
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex flex-col items-center gap-4 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3l2 4H7v6h2l-2 4H5a2 2 0 01-2-2V5z" />
+                </svg>
+                <div>
+                    <h3 class="text-base md:text-xl font-bold mb-1">Call Us</h3>
+                    <p class="text-sm md:text-base">
+                        +1 (555) 123-4567
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Working Hours -->
+            <div class="flex flex-col items-center gap-4 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3M12 2a10 10 0 110 20 10 10 0 010-20z" />
+                </svg>
+                <div>
+                    <h3 class="text-base md:text-xl font-bold mb-1">Working Hours</h3>
+                    <p class="text-sm md:text-base">
+                        Mon - Fri: 9am - 6pm<br />
+                        Sat, Sun: Closed
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
